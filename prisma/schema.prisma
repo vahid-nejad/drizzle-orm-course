@@ -27,6 +27,7 @@ model Post {
   imageUrl  String
   bannerUrl String
   published Boolean @default(false)
+  updatedAt DateTime?
   author    User    @relation(fields: [authorId], references: [id])
   authorId  Int
 }

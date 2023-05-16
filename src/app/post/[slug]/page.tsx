@@ -1,7 +1,6 @@
-import prisma from "@/lib/prisma";
-import { Metadata } from "next";
+import { getAllPosts, getPostBySlug } from "@/lib/getData";
+
 import Image from "next/image";
-import React from "react";
 
 interface Props {
   params: {
@@ -9,34 +8,8 @@ interface Props {
   };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await prisma.post.findFirst({
-    where: {
-      slug: params.slug,
-    },
-  });
-  if (!post) {
-    return {
-      title: "Not Found",
-      description: "This page not found!",
-    };
-  }
-
-  return {
-    title: post.title,
-    description: post.description,
-    alternates: {
-      canonical: `/post/${post.slug}`,
-      languages: {
-        "en-CA": `en-CA/post/${post.slug}`,
-      },
-    },
-    twitter: {},
-  };
-}
-
 export async function generateStaticParams() {
-  const posts = await prisma.post.findMany();
+  const posts = await getAllPosts();
 
   if (!posts) return [];
 
@@ -46,11 +19,7 @@ export async function generateStaticParams() {
 }
 
 const BlogPostPage = async ({ params }: Props) => {
-  const post = await prisma.post.findFirst({
-    where: {
-      slug: params.slug,
-    },
-  });
+  const post = await getPostBySlug(params.slug);
   return (
     <div className="p-2 flex flex-col gap-2 ">
       <Image
