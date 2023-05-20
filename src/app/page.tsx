@@ -1,5 +1,6 @@
 import BlogPostContainer from "@/components/BlogPostContainer";
 import { getAllPosts } from "@/lib/getData";
+import { Metadata } from "next";
 
 export default async function Home() {
   const posts = await getAllPosts();
