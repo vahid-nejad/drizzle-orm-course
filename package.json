@@ -10,15 +10,16 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
-    "@prisma/client": "^4.14.1",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "drizzle-orm": "^0.27.0",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "next": "13.4.1",
     "postcss": "8.4.23",
+    "postgres": "^3.3.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
@@ -26,9 +27,6 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "prisma": "^4.14.1"
-  },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "drizzle-kit": "^0.19.3"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.fontSize": 20,
+    "window.zoomLevel": 1,
+
+    "prettier.printWidth": 95
+  }
+}
