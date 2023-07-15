@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "1cfb0cfd-88cd-4b16-8433-52a85407ad4d",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "f326c503-cac8-4973-abea-249fcdfab0bf",
+  "prevId": "46892b25-38ad-40f3-84df-cb61e3948d84",
   "tables": {
     "testTable": {
       "name": "testTable",
@@ -58,7 +58,7 @@
         },
         "startAt": {
           "name": "startAt",
-          "type": "time with time zone",
+          "type": "time(3)",
           "primaryKey": false,
           "notNull": false,
           "default": "now()"

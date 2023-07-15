@@ -1,0 +1,1 @@
+ALTER TABLE "testTable" ADD COLUMN "date" timestamp DEFAULT now();

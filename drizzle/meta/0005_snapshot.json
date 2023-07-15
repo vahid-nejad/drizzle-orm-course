@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "1cfb0cfd-88cd-4b16-8433-52a85407ad4d",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "5d701a90-a7a1-4495-8ee6-094757ad3aac",
+  "prevId": "2237a287-1b46-4983-b481-443c3f4c44c3",
   "tables": {
     "testTable": {
       "name": "testTable",
@@ -58,7 +58,14 @@
         },
         "startAt": {
           "name": "startAt",
-          "type": "time with time zone",
+          "type": "time(0)",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "date": {
+          "name": "date",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
           "default": "now()"
