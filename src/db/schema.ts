@@ -27,6 +27,7 @@ export const users = pgTable("users", {
   fullName: text("full_name"),
   phone: varchar("phone", { length: 256 }),
   address: varchar("address", { length: 256 }),
+  score: integer("score"),
 });
 
 export const moodEnum = pgEnum("mood", ["sad", "ok", "happy"]);
@@ -39,8 +40,8 @@ export const testTable = pgTable("testTable", {
   // description: text("description"),
   description: varchar("description", { length: 256 }),
   name: char("name", { length: 10 }), // "chair     "
-  data: jsonb("data").notNull().primaryKey(),
-  startAt: time("startAt", { precision: 0, withTimezone: false }).defaultNow(),
+  data: jsonb("data"),
+  // startAt: time("startAt", { withTimezone: false }).defaultNow(),
   date: interval("date"),
   mood: moodEnum("mood").default("ok"),
 });

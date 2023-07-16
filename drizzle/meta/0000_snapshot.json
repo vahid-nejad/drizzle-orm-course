@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "1cfb0cfd-88cd-4b16-8433-52a85407ad4d",
+  "id": "6803481b-1c81-4a84-b820-71eaaeb59b77",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "testTable": {
@@ -56,12 +56,18 @@
           "primaryKey": false,
           "notNull": false
         },
-        "startAt": {
-          "name": "startAt",
-          "type": "time with time zone",
+        "date": {
+          "name": "date",
+          "type": "interval",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mood": {
+          "name": "mood",
+          "type": "mood",
           "primaryKey": false,
           "notNull": false,
-          "default": "now()"
+          "default": "'ok'"
         }
       },
       "indexes": {},
@@ -95,6 +101,12 @@
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": false
+        },
+        "score": {
+          "name": "score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -102,7 +114,16 @@
       "compositePrimaryKeys": {}
     }
   },
-  "enums": {},
+  "enums": {
+    "mood": {
+      "name": "mood",
+      "values": {
+        "sad": "sad",
+        "ok": "ok",
+        "happy": "happy"
+      }
+    }
+  },
   "schemas": {},
   "_meta": {
     "schemas": {},

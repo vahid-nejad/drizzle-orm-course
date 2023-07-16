@@ -1,1 +1,0 @@
-ALTER TABLE "testTable" ALTER COLUMN "startAt" SET DATA TYPE time(6) with time zone;

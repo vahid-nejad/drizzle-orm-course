@@ -31,6 +31,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@types/pg": "^8.10.2",
     "drizzle-kit": "^0.19.3"
   }
