@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   bigint,
   bigserial,
@@ -31,18 +32,33 @@ export const users = pgTable("users", {
   score: integer("score"),
 });
 
-export const moodEnum = pgEnum("mood", ["sad", "ok", "happy"]);
-export const testTable = pgTable("testTable", {
-  id: bigserial("id", { mode: "bigint" }).primaryKey(),
-  qty: bigint("qty", { mode: "bigint" }),
-  price: numeric("price", { precision: 7, scale: 2 }), // 12345.67
-  score: doublePrecision("score"),
-  delivered: boolean("delivered"),
-  // description: text("description"),
-  description: varchar("description", { length: 256 }),
-  name: char("name", { length: 10 }), // "chair     "
-  data: jsonb("data"),
-  // startAt: time("startAt", { withTimezone: false }).defaultNow(),
-  date: interval("date"),
-  mood: moodEnum("mood").default("ok"),
+export const userRelations = relations(users, ({ one }) => ({
+  profile: one(profiles, {
+    fields: [users.id],
+    references: [profiles.userId],
+  }),
+}));
+
+export const profiles = pgTable("profiles", {
+  id: serial("id").primaryKey(),
+  bio: varchar("bio", { length: 256 }),
+  userId: integer("user_id")
+    .notNull()
+    .references(() => users.id),
 });
+
+// export const moodEnum = pgEnum("mood", ["sad", "ok", "happy"]);
+// export const testTable = pgTable("testTable", {
+//   id: bigserial("id", { mode: "bigint" }).primaryKey(),
+//   qty: bigint("qty", { mode: "bigint" }),
+//   price: numeric("price", { precision: 7, scale: 2 }), // 12345.67
+//   score: doublePrecision("score"),
+//   delivered: boolean("delivered"),
+//   // description: text("description"),
+//   description: varchar("description", { length: 256 }),
+//   name: char("name", { length: 10 }), // "chair     "
+//   data: jsonb("data"),
+//   // startAt: time("startAt", { withTimezone: false }).defaultNow(),
+//   date: interval("date"),
+//   mood: moodEnum("mood").default("ok"),
+// });

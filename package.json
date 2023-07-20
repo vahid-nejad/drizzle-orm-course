@@ -9,7 +9,8 @@
     "lint": "next lint",
     "migration:generate": "drizzle-kit generate:pg --schema=./src/db/schema.ts",
     "migration:push": "node -r esbuild-register src/db/migrate.ts",
-    "migrate": "drizzle-kit generate:pg --schema=./src/db/schema.ts && node -r esbuild-register src/db/migrate.ts"
+    "migrate": "drizzle-kit generate:pg --schema=./src/db/schema.ts && node -r esbuild-register src/db/migrate.ts",
+    "db:seed": "node -r esbuild-register src/db/seed.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",

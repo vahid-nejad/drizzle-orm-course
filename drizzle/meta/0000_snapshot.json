@@ -1,77 +1,48 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "6803481b-1c81-4a84-b820-71eaaeb59b77",
+  "id": "01722231-894e-4d7b-b4d5-57ae271ea167",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "testTable": {
-      "name": "testTable",
+    "profiles": {
+      "name": "profiles",
       "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "bigserial",
+          "type": "serial",
           "primaryKey": true,
           "notNull": true
         },
-        "qty": {
-          "name": "qty",
-          "type": "bigint",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "price": {
-          "name": "price",
-          "type": "numeric(7, 2)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "score": {
-          "name": "score",
-          "type": "double precision",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "delivered": {
-          "name": "delivered",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "description": {
-          "name": "description",
+        "bio": {
+          "name": "bio",
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": false
         },
-        "name": {
-          "name": "name",
-          "type": "char(10)",
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": false
-        },
-        "data": {
-          "name": "data",
-          "type": "jsonb",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "date": {
-          "name": "date",
-          "type": "interval",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "mood": {
-          "name": "mood",
-          "type": "mood",
-          "primaryKey": false,
-          "notNull": false,
-          "default": "'ok'"
+          "notNull": true
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "profiles_user_id_users_id_fk": {
+          "name": "profiles_user_id_users_id_fk",
+          "tableFrom": "profiles",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {}
     },
     "users": {
@@ -114,16 +85,7 @@
       "compositePrimaryKeys": {}
     }
   },
-  "enums": {
-    "mood": {
-      "name": "mood",
-      "values": {
-        "sad": "sad",
-        "ok": "ok",
-        "happy": "happy"
-      }
-    }
-  },
+  "enums": {},
   "schemas": {},
   "_meta": {
     "schemas": {},

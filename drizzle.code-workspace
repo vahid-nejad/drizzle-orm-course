@@ -9,6 +9,9 @@
     "editor.fontSize": 20,
     "window.zoomLevel": 1,
 
-    "prettier.printWidth": 95
+    "prettier.printWidth": 100,
+    "editor.hover.enabled": false,
+
+    "editor.wordWrap": "on"
   }
 }
