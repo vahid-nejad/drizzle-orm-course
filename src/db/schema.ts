@@ -13,6 +13,7 @@ import {
   numeric,
   pgEnum,
   pgTable,
+  primaryKey,
   real,
   serial,
   smallserial,
