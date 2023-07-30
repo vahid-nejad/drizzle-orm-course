@@ -48,10 +48,47 @@ export const posts = pgTable("posts", {
     .references(() => users.id),
 });
 
-export const postRelations = relations(posts, ({ one }) => ({
+export const postRelations = relations(posts, ({ one, many }) => ({
   author: one(users, {
     fields: [posts.authorId],
     references: [users.id],
+  }),
+
+  postCategories: many(postOnCategories),
+}));
+
+export const categories = pgTable("categories", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 256 }),
+});
+
+export const categoryRelations = relations(categories, ({ many }) => ({
+  posts: many(postOnCategories),
+}));
+
+export const postOnCategories = pgTable(
+  "post_categories",
+  {
+    postId: integer("post_id")
+      .notNull()
+      .references(() => posts.id),
+    categoryId: integer("category_id")
+      .notNull()
+      .references(() => categories.id),
+  },
+  (t) => ({
+    pk: primaryKey(t.postId, t.categoryId),
+  })
+);
+export const postOnCategoriesRelations = relations(postOnCategories, ({ one }) => ({
+  post: one(posts, {
+    fields: [postOnCategories.postId],
+    references: [posts.id],
+  }),
+
+  category: one(categories, {
+    fields: [postOnCategories.categoryId],
+    references: [categories.id],
   }),
 }));
 
