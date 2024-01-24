@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/src/db/seed.ts
+# /src/db/seed.ts
 
 # testing
 /coverage

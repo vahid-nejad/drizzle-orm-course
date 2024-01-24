@@ -7,7 +7,7 @@
   "settings": {
     "typescript.tsdk": "node_modules/typescript/lib",
     "editor.fontSize": 20,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
 
     "prettier.printWidth": 100,
     "editor.hover.enabled": false,
